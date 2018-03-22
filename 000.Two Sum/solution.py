@@ -8,9 +8,10 @@ class Solution:
         d = {}
         for i,j in enumerate(nums):
             b = target - j
-            if b in d.values():
-                x = list(d.keys())[list(d.values()).index(b)]
+            if b in d.keys():
+                x = d[b]
                 return [x,i]
             else:
-                d[i] = j
+                d[j] = i
 
+print Solution().twoSum([3,4,3], 6)
