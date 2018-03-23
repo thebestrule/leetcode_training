@@ -7,14 +7,19 @@ class Solution:
         :type nums2: List[int]
         :rtype: List[int]
         """
-        temList = []
-        for x in nums1:
-            for j,i in enumerate(nums2):
-                if x == i:
-                    temList.append(x)
-                    nums2.pop(j)
-                    break
-        return temList
+        memo = dict()
+        for i in nums1:
+            if i not in memo:
+                memo[i] = 1
+            else:
+                memo[i] += 1
+
+        r = []
+        for i in nums2:
+            if i in memo and memo[i] > 0:
+                r.append(i)
+                memo[i] -= 1
+        return r
 
 
 print Solution().intersect([1], [1,1])

@@ -4,13 +4,14 @@ class Solution:
         :type nums: List[int] 
         :rtype: int 
         """
-        tem = dict()
-        for x in nums:
-            if x in tem.keys():
-                tem[x] += 1
-            else:
-                tem[x] = 1
-        t = list(tem.keys())[list(tem.values()).index(1)]
-        return t
+        # l = len(nums)
+        # if l == 1:
+        #     return nums[0]
+        # result = 0
+        # for num in nums:
+        #     result ^= num
+        # return result
+        return 2 * sum(set(nums)) - sum(nums)
 
-print Solution().singleNumber([0])
+
+print Solution().singleNumber([1,2,3,1,2])
