@@ -4,16 +4,10 @@ class Solution():
         :type nums: List[int]
         :rtype: bool
         """
-        t = dict()
-        for x in nums:
-            if x in t.keys():
-                t[x] += 1
-                if t[x] > 1:
-                    return True
-            else:
-                t[x] = 1
-
-        return False
+        num_set = set(nums)
+        if len(nums) == len(num_set):
+            return False
+        return True
 
 
 print Solution().containsDuplicate([1,2,4,5,2])
