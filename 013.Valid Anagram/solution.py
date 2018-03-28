@@ -5,30 +5,17 @@ class Solution:
         :type t: str
         :rtype: bool
         """
-        slen = len(s)
-        tlen = len(t)
-        if slen != tlen:
-            return False
+        # return set(s) == set(t) and all(s.count(i) == t.count(i) for i in set(s))
+        sset = set(s)
+        tset = set(t)
 
-        memo = dict()
-        for i in s:
-            if i not in memo:
-                memo[i] = 1
-            else:
-                memo[i] += 1
+        if sset != tset:
+           return False
+        for x in sset:
+            if s.count(x) != t.count(x):
+                return False
 
-        r = []
-        for i in t:
-            if i in memo and memo[i] > 0:
-                r.append(i)
-                memo[i] -= 1
-
-        if len(r) == slen:
-            return True
-        else:
-            return False
-
-
+        return True
 
 s = 'ba2a'
 t = "aba2"
