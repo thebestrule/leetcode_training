@@ -4,12 +4,14 @@ class Solution:
         :type x: int
         :rtype: int
         """
-        l = str(abs(x))
-        res = 0
-        for i,j in enumerate(l):
-            res += (10**i) * int(j)
 
-        if x < 0:
+        flag = 1 if x < 0 else 0
+        x = abs(x)
+        res = 0
+        while x > 0:
+            res = res * 10 + x % 10
+            x /= 10
+        if flag:
             res = -res
         if res > 2 ** 31 - 1 or res < -2 ** 31:
             return 0
@@ -20,5 +22,5 @@ class Solution:
         # return nums
 
 
-nums = -153423456456456356
+nums = -456456356
 print Solution().reverse(nums)
