@@ -5,19 +5,13 @@ class Solution:
         :type s: str
         :rtype: bool
         """
-        if s == '':
-            return True
+
         newstr = re.findall(r"[A-Z|a-z|\d]",s.lower())
-        l = len(newstr)
-        for x in range(l):
-            k = l - 1 - x
-            if k < x:
-                break
-            if newstr[x] != newstr[k]:
-                return False
-        return True
-
-
+        l = len(newstr) // 2
+        if newstr[:l] == newstr[:-(l+1):-1]:
+            return True
+        else:
+            return False
 
 
 nums = 'A man2, a plan, a canal: Pa2nama'
