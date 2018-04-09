@@ -31,5 +31,5 @@ class Solution:
                         break
         return ''
 
-nums = ['aa','aa']
-print Solution().longestCommonPrefix(nums)
+nums = ['aabsdsd','aabsdd']
+print (Solution().longestCommonPrefix(nums))
